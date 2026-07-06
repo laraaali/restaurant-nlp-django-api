@@ -107,3 +107,6 @@ Invoke-RestMethod -Uri "http://127.0.0.1:8000/api/reviews/" `
 ```
 
 
+### If this application needed to analyze 100,000 new reviews per day, what changes or improvements would you make to your solution?
+
+If the application needed to analyze 100,000 new reviews per day, I would improve the architecture to support scalability and reliability. I would move NLP processing to background tasks using a task queue such as Celery with Redis, allowing reviews to be processed asynchronously instead of during API requests. I would replace SQLite with a production database such as PostgreSQL, optimize database queries, and use batch processing for large amounts of data. I would also containerize the application using Docker, deploy it with multiple workers behind a load balancer, and add monitoring and logging to track performance and errors. Additionally, I would consider using a more advanced NLP model and implement caching to improve response times.
